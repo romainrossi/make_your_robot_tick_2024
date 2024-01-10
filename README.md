@@ -2,11 +2,12 @@
 
 Make Your Robot Tick, a robotics competition by ESIGELEC and Muthoot.
 
-# Registration
+# Asking Questions about the Competition
 
-This competition is opened to selected partner University and Engineering colleges only.
-
-To register for this robotics competition, please fill-in the form at https://forms.gle/EvMgtpmQZAf5fMcBA
+As a participating Team, if you have a question about the RuleBook or other aspect of the competition, you have to fill an issue in this repository.
+1. Go to [[issues]] and check if your question is already answered
+2. If not, create a new issue with the "New Issue" button, and fill-in the form of the "RuleBook question" template.
+3. The organisation team will shortly answer your question. Question and answer will be available for all teams.
 
 # Soon
 
