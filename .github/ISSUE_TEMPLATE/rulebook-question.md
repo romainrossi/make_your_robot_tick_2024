@@ -1,7 +1,7 @@
 ---
 name: RuleBook question
 about: How to ask questions about MYRT Rules and competition
-title: "[Question] - "
+title: "[RuleBook] - "
 labels: question
 assignees: ''
 
