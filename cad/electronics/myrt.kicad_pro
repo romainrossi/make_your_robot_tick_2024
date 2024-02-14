@@ -1,5 +1,6 @@
 {
   "board": {
+    "3dviewports": [],
     "design_settings": {
       "defaults": {
         "board_outline_line_width": 0.19999999999999998,
@@ -126,7 +127,8 @@
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
-    "layer_presets": []
+    "layer_presets": [],
+    "viewports": []
   },
   "boards": [],
   "cvpcb": {
@@ -310,18 +312,23 @@
     "rule_severities": {
       "bus_definition_conflict": "error",
       "bus_entry_needed": "error",
-      "bus_label_syntax": "error",
       "bus_to_bus_conflict": "error",
       "bus_to_net_conflict": "error",
+      "conflicting_netclasses": "error",
       "different_unit_footprint": "error",
       "different_unit_net": "error",
       "duplicate_reference": "error",
       "duplicate_sheet_names": "error",
+      "endpoint_off_grid": "warning",
       "extra_units": "error",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
       "label_dangling": "error",
       "lib_symbol_issues": "warning",
+      "missing_bidi_pin": "warning",
+      "missing_input_pin": "warning",
+      "missing_power_pin": "error",
+      "missing_unit": "warning",
       "multiple_net_names": "warning",
       "net_not_bus_member": "warning",
       "no_connect_connected": "warning",
@@ -331,6 +338,7 @@
       "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -348,7 +356,7 @@
   "net_settings": {
     "classes": [
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -362,10 +370,10 @@
         "track_width": 0.25,
         "via_diameter": 0.6,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.5,
         "diff_pair_gap": 0.6,
         "diff_pair_via_gap": 0.25,
@@ -374,62 +382,15 @@
         "microvia_diameter": 1.0,
         "microvia_drill": 0.6,
         "name": "esigelec",
-        "nets": [
-          "+5V",
-          "/Charging stations/POWER_5V_S1",
-          "/Charging stations/POWER_5V_S2",
-          "/Charging stations/POWER_5V_S3",
-          "/Charging stations/POWER_5V_S4",
-          "/Charging stations/POWER_GND_S1",
-          "/Charging stations/POWER_GND_S2",
-          "/Charging stations/POWER_GND_S3",
-          "/Charging stations/POWER_GND_S4",
-          "/Vharvest",
-          "ADC_IN0",
-          "GND",
-          "LEDS_MOSI",
-          "LEDS_SCK",
-          "Net-(D3-Pad2)",
-          "Net-(D4-Pad2)",
-          "Net-(D5-Pad2)",
-          "Net-(D6-Pad2)",
-          "Net-(J1-Pad2)",
-          "Net-(J10-Pad2)",
-          "Net-(J11-Pad2)",
-          "Net-(J2-Pad2)",
-          "Net-(J3-Pad2)",
-          "Net-(J4-Pad2)",
-          "Net-(J8-Pad2)",
-          "Net-(J9-Pad2)",
-          "Net-(P10-Pad1)",
-          "Net-(P11-Pad1)",
-          "Net-(P5-Pad1)",
-          "Net-(P9-Pad1)",
-          "Net-(R12-Pad1)",
-          "Net-(R13-Pad1)",
-          "Net-(R14-Pad1)",
-          "Net-(R15-Pad1)",
-          "Net-(U1-Pad1)",
-          "Net-(U1-Pad2)",
-          "Net-(U1-Pad3)",
-          "Net-(U1-Pad4)",
-          "Net-(U1-Pad5)",
-          "Net-(U1-Pad6)",
-          "Net-(U1-Pad7)",
-          "Net-(U1-Pad8)",
-          "RESET_SW",
-          "START_SW",
-          "SW_UART_DISPLAY"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.8,
         "via_diameter": 1.2,
         "via_drill": 0.8,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -438,19 +399,201 @@
         "microvia_diameter": 0.15,
         "microvia_drill": 0.1,
         "name": "min",
-        "nets": [],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.15,
         "via_diameter": 0.6,
         "via_drill": 0.35,
-        "wire_width": 6.0
+        "wire_width": 6
       }
     ],
     "meta": {
-      "version": 2
+      "version": 3
     },
-    "net_colors": null
+    "net_colors": null,
+    "netclass_assignments": null,
+    "netclass_patterns": [
+      {
+        "netclass": "esigelec",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_5V_S1"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_5V_S2"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_5V_S3"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_5V_S4"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_GND_S1"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_GND_S2"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_GND_S3"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Charging stations/POWER_GND_S4"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "/Vharvest"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "ADC_IN0"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "LEDS_MOSI"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "LEDS_SCK"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(D3-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(D4-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(D5-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(D6-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J1-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J10-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J11-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J2-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J3-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J4-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J8-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(J9-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(P10-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(P11-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(P5-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(P9-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(R12-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(R13-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(R14-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(R15-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad1)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad2)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad3)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad4)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad5)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad6)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad7)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "Net-(U1-Pad8)"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "RESET_SW"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "START_SW"
+      },
+      {
+        "netclass": "esigelec",
+        "pattern": "SW_UART_DISPLAY"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -466,6 +609,8 @@
   "schematic": {
     "annotate_start_num": 0,
     "drawing": {
+      "dashed_lines_dash_length_ratio": 12.0,
+      "dashed_lines_gap_length_ratio": 3.0,
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
       "field_names": [],
@@ -497,7 +642,11 @@
     "page_layout_descr_file": "",
     "plot_directory": "pdf/",
     "spice_adjust_passive_values": false,
+    "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
+    "spice_model_current_sheet_as_root": true,
+    "spice_save_all_currents": false,
+    "spice_save_all_voltages": false,
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
